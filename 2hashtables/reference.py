@@ -7,13 +7,12 @@ import sys
 # most frequent take the first one in alphabetical order
 
 d = { }
-
 i = 0
 
 for line in sys.stdin:
 	word = line.strip()
 	is_present = word in d
-	remove_it = i % 16 == 0
+	remove_it = (i & 15) == 0
 
 	if is_present:
 		if remove_it:
@@ -32,3 +31,5 @@ for k in d:
 		word = k
 
 print(word, count)
+
+
